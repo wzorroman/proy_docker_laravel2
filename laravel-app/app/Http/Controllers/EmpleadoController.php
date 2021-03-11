@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Empleado;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EmpleadoController extends Controller
 {
@@ -35,7 +36,15 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $datosEmpleado = request()->all();
+        $datosEmpleado = request()->except('_token');
+        if($request->hasFile('foto')){
+            $datosEmpleado['foto'] = $request->file('foto')->store('uploads', 'public');
+        }
+
+        DB::table('empleado')->insert($datosEmpleado);
+
+        return response()->json($datosEmpleado, 200);
     }
 
     /**

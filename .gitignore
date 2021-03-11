@@ -18,3 +18,5 @@ yarn-error.log
 
 # VSCode
 .vscode
+
+/laravel-app/storage/public/uploads
