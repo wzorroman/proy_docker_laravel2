@@ -25,8 +25,13 @@
   ```
 3) correr el comando:;
     ```sh
-    docker-compose exec app php artisan migrate
+    $ docker-compose exec app php artisan migrate
     ```
     Resultado:
     - Migrating: 2021_03_11_005758_create_empleados_table
     - Migrated:  2021_03_11_005758_create_empleados_table (55.48ms)
+
+4) mostrar las rutas con el php artisan
+    ```sh
+    $ docker-compose exec app php artisan route:list
+    ```

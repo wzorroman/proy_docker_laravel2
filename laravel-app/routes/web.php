@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EmpleadoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* Ejemplo cuando son rutas individuales */
+// Route::get('/empleados', 'App\Http\Controllers\EmpleadoController@index');
+// Route::get('/empleados/create', 'App\Http\Controllers\EmpleadoController@create');
+
+/* Cuando queremos llamar a todas las rutas: index, store, create, show, update, destroy, edit*/
+Route::resource('empleados', EmpleadoController::class);
