@@ -22,7 +22,8 @@ Despliegue de empleados
             <th>{{ $empleado->ApellidoMaterno}}</th>
             <th>{{ $empleado->Correo}}</th>
             <th>
-                Editar |
+                <a href="{{ url('/empleados/'.$empleado->id.'/edit') }}">Editar</a>
+                |
                 <form method="POST" action="{{ url('/empleados/'.$empleado->id) }}">
                     {{ csrf_field() }}
                     {{ method_field('DELETE') }}
