@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});
+
 /* Ejemplo cuando son rutas individuales */
 // Route::get('/empleados', 'App\Http\Controllers\EmpleadoController@index');
 // Route::get('/empleados/create', 'App\Http\Controllers\EmpleadoController@create');
