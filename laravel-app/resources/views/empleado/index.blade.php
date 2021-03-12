@@ -21,7 +21,14 @@ Despliegue de empleados
             <th>{{ $empleado->ApellidoPaterno}}</th>
             <th>{{ $empleado->ApellidoMaterno}}</th>
             <th>{{ $empleado->Correo}}</th>
-            <th>Editar | borrar </th>
+            <th>
+                Editar |
+                <form method="POST" action="{{ url('/empleados/'.$empleado->id) }}">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE') }}
+                    <button type="submit" onclick="return confirm('¿Borrar?');">Borrar</button>
+                </form>
+            </th>
         </tr>
     @endforeach
     </tbody>
