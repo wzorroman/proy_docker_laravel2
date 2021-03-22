@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Empleado;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 class EmpleadoController extends Controller
 {
@@ -83,6 +85,18 @@ class EmpleadoController extends Controller
     public function update(Request $request, $id)
     {
         $datosEmpleado = request()->except(['_token', '_method']);
+
+        if ($request->hasFile('foto')) {
+            // Eliminamos la foto antigua antes de subir la nueva
+            $empleado2 = Empleado::findOrFail($id);
+            if (Storage::exists('public/'.$empleado2->Foto)) {
+                Storage::delete('public/'.$empleado2->Foto);
+            } else {
+                dd('File does not exists.');
+            }
+            $datosEmpleado['foto'] = $request->file('foto')->store('uploads', 'public');
+        }
+
         Empleado::where('id','=', $id)->update($datosEmpleado);
 
         // consulta temporal y regresa al mismo formulario
