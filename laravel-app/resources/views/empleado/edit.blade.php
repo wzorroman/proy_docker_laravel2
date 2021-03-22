@@ -22,7 +22,7 @@
         <tr>
             <td><label for="id_foto">{{'Foto'}}</label></td>
             <td>
-                {{ $empleado->Foto }}
+                <img src="{{ asset('storage').'/'.$empleado->Foto }}" alt="" width="200">
                 <br>
                 <input type="file" name="foto" id="id_foto" value="">
             </td>

@@ -16,7 +16,9 @@ Despliegue de empleados
     @foreach($trabajadores as $empleado)
         <tr>
             <th>{{ $loop->iteration }}</th>
-            <th>{{ $empleado->Foto }}</th>
+            <th>
+                <img src="{{ asset('storage').'/'.$empleado->Foto }}" alt="" width="200">
+            </th>
             <th>{{ $empleado->Nombre }}</th>
             <th>{{ $empleado->ApellidoPaterno}}</th>
             <th>{{ $empleado->ApellidoMaterno}}</th>

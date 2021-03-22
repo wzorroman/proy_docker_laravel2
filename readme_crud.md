@@ -35,3 +35,7 @@
     ```sh
     $ docker-compose exec app php artisan route:list
     ```
+5) Generar enlace del storage
+    ```sh
+    $ docker-compose exec app php artisan storage:link
+    ```
