@@ -24,4 +24,5 @@ Crear un empleado
         </tr>
     </table>
     <input type="submit" value="agregar">
+    <a href="{{ url('empleados') }}">Regresar</a>
 </form>

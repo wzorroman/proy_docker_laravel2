@@ -47,7 +47,8 @@ class EmpleadoController extends Controller
 
         DB::table('empleado')->insert($datosEmpleado);
 
-        return response()->json($datosEmpleado, 200);
+        // return response()->json($datosEmpleado, 200);
+        return redirect('empleados');
     }
 
     /**
@@ -113,7 +114,11 @@ class EmpleadoController extends Controller
     /*public function destroy(Empleado $empleado)*/
     public function destroy($id)
     {
-        Empleado::destroy($id);
+        $empleado = Empleado::findOrFail($id);
+        if (Storage::delete('public/'.$empleado->Foto)) {
+            Empleado::destroy($id);
+        }
+
         return redirect('empleados'); //retorna a la lista
     }
 }

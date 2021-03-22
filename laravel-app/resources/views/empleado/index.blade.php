@@ -1,4 +1,7 @@
-Despliegue de empleados
+Listado de empleados
+<hr>
+<a href="{{ url('empleados/create') }}">Agregar Empleado</a>
+<br>
 <table class="table table-light">
     <thead class="thead-light">
         <tr>

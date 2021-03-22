@@ -29,4 +29,5 @@
         </tr>
     </table>
     <input type="submit" value="Actualizar">
+    <a href="{{ url('empleados') }}">Regresar</a>
 </form>
