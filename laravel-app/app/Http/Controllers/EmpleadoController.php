@@ -48,7 +48,7 @@ class EmpleadoController extends Controller
         DB::table('empleado')->insert($datosEmpleado);
 
         // return response()->json($datosEmpleado, 200);
-        return redirect('empleados');
+        return redirect('empleados')->with('Mensaje', 'Empleado agregado exitosamente');
     }
 
     /**
@@ -101,8 +101,10 @@ class EmpleadoController extends Controller
         Empleado::where('id','=', $id)->update($datosEmpleado);
 
         // consulta temporal y regresa al mismo formulario
-        $empleado = Empleado::findOrFail($id);
-        return view('empleado.edit', compact('empleado'));
+        // $empleado = Empleado::findOrFail($id);
+        //return view('empleado.edit', compact('empleado'));
+
+        return redirect('empleados')->with('Mensaje', 'Empleado modificado exitosamente');
     }
 
     /**
@@ -119,6 +121,6 @@ class EmpleadoController extends Controller
             Empleado::destroy($id);
         }
 
-        return redirect('empleados'); //retorna a la lista
+        return redirect('empleados')->with('Mensaje', 'Empleado eliminado exitosamente');
     }
 }

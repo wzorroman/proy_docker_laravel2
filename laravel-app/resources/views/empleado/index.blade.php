@@ -1,4 +1,9 @@
 Listado de empleados
+<br>
+@if (Session::has('Mensaje')){{
+    Session::get('Mensaje')
+}}
+@endif
 <hr>
 <a href="{{ url('empleados/create') }}">Agregar Empleado</a>
 <br>
