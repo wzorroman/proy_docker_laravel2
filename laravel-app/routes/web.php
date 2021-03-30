@@ -28,3 +28,7 @@ Route::get('/clear-cache', function() {
 
 /* Cuando queremos llamar a todas las rutas: index, store, create, show, update, destroy, edit*/
 Route::resource('empleados', EmpleadoController::class);
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
